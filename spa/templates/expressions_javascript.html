@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Angular Expressions with Javascript</title>
+    <style>
+        a{color:red; text-decoration: underline; cursor: pointer;}
+    </style>
+</head>
+<body>
+<div ng-controller="myController">
+
+    <h1>Expressions</h1>
+    Array: <br>
+    {% verbatim %}{{ myArray }}{% endverbatim%}
+    <hr>
+
+    Elements Removed From Array: <br>
+    {% verbatim %}{{ removeArray }}{% endverbatim%}
+    <hr>
+
+    <a ng-click="myArray.push(Math.floor(Math.random()*100 +1))">Click here to append a value to the array</a>
+
+    <br><br>
+
+    <a ng-click="removeArray.push(myArray.shift())">Click here remove the first value from the array and push it to removeArray</a>
+
+    <br><br>
+
+    Size of myArray: <br>
+    {% verbatim %} {{ myArray.length }}{% endverbatim %}
+
+    <br><br>
+
+    Highest Number Removed From The Array: <br>
+    {% verbatim %} {{ Math.max.apply(Math, removeArray) }} {% endverbatim %}
+
+    <hr>
+
+</div>
+
+<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+<script src="{% static "spa/js/expressions_javascript.js" %}"></script>
+</body>
+</html>

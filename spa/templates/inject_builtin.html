@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS Dependency Injection</title>
+</head>
+<body>
+    <div ng-controller="controllerA">
+        <h1>This Page Has an Alert!</h1>
+    </div>
+    <hr>
+
+<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+<script src="{% static "spa/js/inject_buildin.js" %}"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS Filter Sort</title>
+    <style>
+        table{text-align:right;}
+        td, th{padding:3px;}
+        th{cursor:pointer;}
+    </style>
+</head>
+<body>
+
+<div ng-controller="myController">
+    <h2>Sorting and Filtering</h2>
+    <input type="text" ng-model="filterString">
+    <input type="button" ng-click="setFilter()" value="Filter">
+
+    <table>
+        <tr>
+            <th ng-click="setSort('make')">Make</th>
+            <th ng-click="setSort('model')">Model</th>
+            <th ng-click="setSort('capacity')">Capacity</th>
+        </tr>
+        <tr ng-repeat="plane in filteredPlanes | orderBy:column:reverse">
+            <td>{% verbatim %}{{ plane.make }}{% endverbatim %}</td>
+            <td>{% verbatim %}{{ plane.model }}{% endverbatim %}</td>
+            <td>{% verbatim %}{{ plane.capacity }}{% endverbatim %}</td>
+        </tr>
+    </table>
+</div>
+
+
+
+<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+<script src="{% static "spa/js/filter_sort.js" %}"></script>
+</body>
+</html>

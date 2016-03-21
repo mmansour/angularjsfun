@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<html ng-app="theMainApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS Expressions / Scope</title>
+    <style>
+        a{color:blue; text-decoration: underline; cursor: pointer;}
+    </style>
+</head>
+<body>
+<div ng-controller="theMainController">
+    Directly accessing variables in the scope: <br>
+    {% verbatim %}{{ speed }} {{ vehicle }}{% endverbatim %}
+
+    <hr>
+    Adding variables in the scope: <br>
+    {% verbatim %}{{ speed + ' - ' + vehicle }}{% endverbatim %}
+
+    <hr>
+    Calling a function in the scope: <br>
+    {% verbatim %}{{ lower(speed) }} {{ upper('Jeep') }}{% endverbatim %}
+
+    <hr>
+    <a ng-click="setValues('Fast', newVehicle)">Click to change to fast: {% verbatim %}{{ newVehicle }}{% endverbatim %}</a>
+
+    <hr>
+    <a ng-click="setValues(newSpeed, 'Rocket')">Click to change to new speed: {% verbatim %}{{ newSpeed }}{% endverbatim %}</a>
+
+    <hr>
+    <a ng-click="vehicle='Enhanced ' + vehicle">Click to enhance vehicle</a>
+
+
+
+</div>
+
+<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+<script src="{% static "spa/js/expressions_scope.js" %}"></script>
+</body>
+</html>

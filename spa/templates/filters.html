@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Angular Basic Filters</title>
+</head>
+<body>
+<div ng-controller="myController">
+    <h1>Basic Filters</h1>
+    Number: {% verbatim %} {{ 123.45678|number:3 }} {% endverbatim %}<br>
+    Currency: {% verbatim %} {{ 123.45678|currency:"$" }} {% endverbatim %}<br>
+    Current Date: {% verbatim %} {{ currentDate|date:"yyyy-MM-dd" }} {% endverbatim %}<br>
+    JSON: {% verbatim %} {{ JSONObj | json }} {% endverbatim %}<br>
+    Limit Array: {% verbatim %} {{ weekdays | limitTo:3 }} {% endverbatim %}<br>
+    Limit String: {% verbatim %} {{ words | limitTo:3 }} {% endverbatim %}<br>
+    Chaining Uppercase: {% verbatim %} {{ words | uppercase | limitTo:7 }} {% endverbatim %}<br>
+    Chaining Lowercase: {% verbatim %} {{ words | lowercase | limitTo:7 }} {% endverbatim %}<br>
+</div>
+
+<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+<script src="{% static "spa/js/filters.js" %}"></script>
+</body>
+</html>

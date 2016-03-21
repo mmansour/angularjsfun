@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS Expressions</title>
+    <style>
+        p{margin:0;}
+        p:after{color:red;}
+    </style>
+</head>
+<body>
+
+<div ng-controller="myController">
+    <h1>Expressions</h1>
+    Number: {% verbatim %}{{ 5 }}{% endverbatim %}<hr>
+    String: {% verbatim %}{{ 'My String' }}{% endverbatim %}<hr>
+    Adding Two Strings: {% verbatim %}{{ 'My String One' + 'My String Two'}}{% endverbatim %}<hr>
+    Adding Two Numbers: {% verbatim %}{{ 5 + 5 }}{% endverbatim %}<hr>
+    Adding Two Strings and Two Numbers: {% verbatim %}{{ 5 + '+' + 5 + '='  }}{{ 5 + 5 }}{% endverbatim %}<hr>
+    Comparing Two Numbers: {% verbatim %}{{ 5 === 5 }}{% endverbatim %}<hr>
+</div>
+
+<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+<script src="{% static "spa/js/expressions_basic.js" %}"></script>
+</body>
+</html>

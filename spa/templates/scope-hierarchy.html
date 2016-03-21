@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS Scope Hierarchy</title>
+</head>
+<body>
+
+<div ng-controller="LevelA">
+    <h3>{% verbatim %}{{ title }}{% endverbatim %}</h3>
+
+    ValueA = {% verbatim %}{{ valueA }}{% endverbatim %}
+    <input type="button" ng-click="inc()" value="+">
+
+    <div ng-controller="LevelB"><hr>
+        <h3>{% verbatim %}{{ title }}{% endverbatim %}</h3>
+
+        ValueA = {% verbatim %}{{ valueA }}{% endverbatim %}<br>
+        ValueB = {% verbatim %}{{ valueB }}{% endverbatim %}
+        <input type="button" ng-click="inc()" value="+">
+
+        <div ng-controller="LevelC"><hr>
+            <h3>{% verbatim %}{{ title }}{% endverbatim %}</h3>
+
+            ValueA = {% verbatim %}{{ valueA }}{% endverbatim %}<br>
+            ValueB = {% verbatim %}{{ valueB }}{% endverbatim %}<br>
+            ValueC = {% verbatim %}{{ valueC }}{% endverbatim %}
+            <input type="button" ng-click="inc()" value="+">
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+<script src="{% static "spa/js/scope_hierarchy.js" %}"></script>
+
+</body>
+</html>

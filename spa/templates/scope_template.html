@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS Scope and Templates</title>
+</head>
+<body>
+
+<div ng-controller="SimpleTemplate">
+    ValueA: <input ng-model="valueA" type="number"><br>
+    ValueB: <input ng-model="valueB" type="number"><br><br>
+    Expression: {% verbatim %}{{ valueA }} + {{ valueB }}{% endverbatim %}<br><br>
+    Live Expression: {% verbatim %}{{ valueA + valueB }}{% endverbatim %}<br><br>
+
+    <input type="button" ng-click="addValues(valueA, valueB)"
+           value="Click to add values: {% verbatim %}{{ valueA }} & {{ valueB }}{% endverbatim %}"><br><br>
+    Clicked Expression Value: {% verbatim %}{{ valueC }}{% endverbatim %}
+
+</div>
+
+<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+<script src="{% static "spa/js/scope_template.js" %}"></script>
+
+</body>
+</html>

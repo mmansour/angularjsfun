@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS | Directive Forms</title>
+</head>
+<body>
+
+<div ng-controller="myController">
+    <h2>Form Directives</h2>
+
+    <input type="text" ng-model="someText"> {% verbatim %}{{ someText }}{% endverbatim %}
+
+    <hr>
+
+    <input type="checkbox" ng-model="cbValue" ng-true-value="AWESOME!" ng-false-value="BUMMER"> Checkbox: {% verbatim %}{{ cbValue }}{% endverbatim %}
+
+    <hr>
+
+    <input type="radio" ng-model="cameraName" value="Canon"> Canon
+    <br>
+    <input type="radio" ng-model="cameraName" value="Nikon"> Nikon
+    <br>
+    Selected Camera:  {% verbatim %}{{ cameraName }}{% endverbatim %}
+
+    <hr>
+    Select Camera:
+    <select ng-model="camera" ng-options="c.model group by c.make for c in cameras"></select>
+    {% verbatim %}{{ camera|json}}{% endverbatim %}
+</div>
+
+<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+<script src="{% static "spa/js/directive_forms.js" %}"></script>
+</body>
+</html>
